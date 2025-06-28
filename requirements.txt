@@ -1,7 +1,5 @@
-HEAD
-gunicorn==23.0.0
-packaging==25.0
 
 gunicorn==23.0.0
 packaging==25.0
-8c645dc289aa7ff086cc5e784c8d3d444bbe7b09
+
+
