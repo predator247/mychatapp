@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Chat App</title>
+    <style>
+        body { font-family: Arial; }
+        #messages { height: 400px; overflow-y: scroll; border: 1px solid #ccc; padding: 5px; }
+        #myMessage { width: 80%; }
+    </style>
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"></script>
+    <script>
+        var socket = io();
+        window.onload = function() {
+            document.getElementById('chatForm').onsubmit = function(e) {
+                e.preventDefault();
+                var msg = document.getElementById('myMessage').value;
+                socket.send(msg);
+                document.getElementById('myMessage').value = '';
+            };
+            socket.on('message', function(msg) {
+                var messages = document.getElementById('messages');
+                messages.innerHTML += '<div>' + msg + '</div>';
+                messages.scrollTop = messages.scrollHeight;
+            });
+        };
+    </script>
+</head>
+<body>
+    <h1>Chat Room</h1>
+    <div id="messages"></div>
+    <form id="chatForm">
+        <input id="myMessage" autocomplete="off" placeholder="Type your message..." />
+        <button>Send</button>
+    </form>
+</body>
+</html>
