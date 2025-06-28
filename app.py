@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+HEAD
 from flask import Flask, render_template
 from flask_socketio import SocketIO, send
 
@@ -17,7 +17,7 @@ def handleMessage(msg):
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=5000)
-=======
+
 from flask import Flask, render_template
 from flask_socketio import SocketIO, send
 
@@ -36,4 +36,3 @@ def handleMessage(msg):
 
 if __name__ == '__main__':
     socketio.run(app, host='0.0.0.0', port=5000)
->>>>>>> 8c645dc289aa7ff086cc5e784c8d3d444bbe7b09
